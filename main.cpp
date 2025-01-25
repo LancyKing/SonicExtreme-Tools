@@ -68,12 +68,6 @@ int main() {
 		MainCam.target = PlayerPos + PlayerLookDir;
 
 
-
-		// Update shader
-		float ShaderViewPos[]{ MainCam.position.x,MainCam.position.y,MainCam.position.z };
-		SetShaderValue(Shader1, GetShaderLocation(Shader1, "viewPos"), ShaderViewPos, SHADER_UNIFORM_VEC3);
-
-
 		// Draw
 		BeginTextureMode(RenderTexture); ClearBackground(BLACK);
 		BeginMode3D(MainCam);
