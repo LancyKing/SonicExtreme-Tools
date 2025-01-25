@@ -28,21 +28,8 @@ int main() {
 	MainCam.target = Vector3{};
 	MainCam.up = Vector3{ 0.f,1.f,0.f };
 
-	// Asset loading
-	AddModel("assets/models/torus.obj");
-	AddTexture("assets/textures/default.png");
-	SetMaterialTexture(&Models[0].materials[0], MATERIAL_MAP_DIFFUSE, Textures[0]);
-
-	// Setting up shaders
-	Shader Shader1{ LoadShader("assets/shaders/vertex.vs","assets/shaders/shine.fs") };
-	Models[0].materials[0].shader = Shader1;
-
-	float ShaderLightPos[]{ -.5f,2.f,0.f };
-	SetShaderValue(Shader1, GetShaderLocation(Shader1, "lightPos"), ShaderLightPos, SHADER_UNIFORM_VEC3);
-
 	// World initialization
 	World MainWorld{ "assets/pcx_levels/GOLD.png" };
-	//MainWorld.WorldModel.materials[0].shader = Shader1;
 
 
 	while (!WindowShouldClose()) {
