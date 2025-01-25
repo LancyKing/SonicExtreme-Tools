@@ -62,6 +62,29 @@ DynamicMesh::DynamicMesh() {}
 
 
 
+Block* World::CastRay(Vector3 Pos, Vector3 Dir) {
+	Block* Result{ nullptr };
+	Dir = Normal(Dir) / 10.f;
+
+	for (int i = 0; i < 1000; i++) {
+		Pos = Pos + Dir;
+		if (Pos.x < 0.f || Pos.y < 0.f || Pos.z < 0.f) {
+			continue;
+		}
+		if (Pos.x >= (float)Width || Pos.y >= (float)Height || Pos.z >= (float)Length) {
+			continue;
+		}
+		unsigned int WorldX{ (unsigned int)Pos.x };
+		unsigned int WorldY{ (unsigned int)Pos.y };
+		unsigned int WorldZ{ (unsigned int)Pos.z };
+		Block* ThisBlock{ &Blocks.Grid[Blocks.GetIndex(WorldX,WorldY,WorldZ)] };
+		if (ThisBlock->Collision) {
+			return ThisBlock;
+	}	}
+
+	return Result;
+}
+
 void World::Draw() {
 	DrawCubeWires(Vector3{ (float)Width / 2.f, (float)Height / 2.f, (float)Length / 2.f }, Width, Height, Length, RED);
 

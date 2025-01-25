@@ -49,6 +49,8 @@ struct World {
 	Model WorldModel{};
 	DynamicMesh DMesh{};
 
+	Block* CastRay(Vector3 Pos, Vector3 Dir);
+
 	void Draw();
 
 	World(unsigned int Width, unsigned int Height, unsigned int Length);
