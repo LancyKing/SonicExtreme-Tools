@@ -31,7 +31,7 @@ int main() {
 	MainCam.up = Vector3{ 0.f,1.f,0.f };
 
 	// World initialization
-	World MainWorld{ "assets/pcx_levels/Level_01.png" };
+	World MainWorld{ "assets/pcx_levels/GOLD.png" };
 
 	// Generate mesh
 	lancy::DynamicMesh DMesh;

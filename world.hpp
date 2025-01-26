@@ -19,6 +19,9 @@ constexpr Vector3 CubeCorners[8]{
 struct Block {
 	bool Collision{ false };
 	Color Col{ BLACK };
+	Model* ModelPtr{ nullptr };
+
+	void Draw(Vector3 Pos);
 
 	Block(bool Collision, Color Col);
 	Block();

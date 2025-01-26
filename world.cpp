@@ -2,6 +2,14 @@
 
 
 
+void Block::Draw(Vector3 Pos) {
+	if (ModelPtr == nullptr) {
+		DrawCube(Pos, 1.f, 1.f, 1.f, Col);
+	}
+	else {
+		DrawModel(*ModelPtr, Pos, 1.f, Col);
+}	}
+
 Block::Block(bool Collision, Color Col) : Collision(Collision), Col(Col) {}
 
 Block::Block() {}
@@ -93,7 +101,7 @@ void World::Draw() {
 			for (unsigned int z = 0; z < Length; z++) {
 				if (Blocks.Grid[Blocks.GetIndex(x, y, z)].Collision) {
 					Vector3 DrawPos{ (float)x + .5f, (float)y + .5f, (float)z + .5f };
-					DrawCube(DrawPos, 1, 1, 1, Blocks.Grid[Blocks.GetIndex(x, y, z)].Col);
+					Blocks.Grid[Blocks.GetIndex(x, y, z)].Draw(DrawPos);
 }	}	}	}	}
 
 World::World(unsigned int Width, unsigned int Height, unsigned int Length) : Width(Width), Height(Height), Length(Length), Blocks(lancy::Array3<Block>{Width, Height, Length}) {}
