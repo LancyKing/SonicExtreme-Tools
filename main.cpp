@@ -33,11 +33,6 @@ int main() {
 	// World initialization
 	World MainWorld{ "assets/pcx_levels/GOLD.png" };
 
-	// Generate mesh
-	lancy::DynamicMesh DMesh;
-	DMesh = lancy::CreateCube(0.f, 0.f, 0.f, .5f);
-	DMesh.Export("file.obj");
-
 
 	while (!WindowShouldClose()) {
 		// Update
